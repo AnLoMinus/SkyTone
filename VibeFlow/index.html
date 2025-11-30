@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vibe & Flow – VibeFlow (VF)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="עמוד הסגנון Vibe & Flow – Hip-Hop Cosmic, Trap, ChillHop, Energetic Rap, Rhythm Focus ו-Space Groove." />
+  <style>
+    :root {
+      --bg-main: #050712;
+      --bg-card: #0f1425;
+      --bg-soft: #151a30;
+      --accent-1: #ffda6b;
+      --accent-2: #7ee4ff;
+      --accent-3: #ff7bff;
+      --accent-4: #7dffb3;
+      --text-main: #f7f7ff;
+      --text-soft: #b9c0ff;
+      --border-glow: rgba(255, 255, 255, 0.2);
+      --shadow-soft: 0 0 40px rgba(0, 0, 0, 0.7);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --transition-fast: 0.22s ease-out;
+      --gap: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1c2347 0, #050712 55%, #020309 100%);
+      color: var(--text-main);
+      direction: rtl;
+      text-align: right;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 26px 18px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5,7,18,0.96), rgba(5,7,18,0.85), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .hero-orb {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 25% 20%, #ffffff 0, #ffda6b 16%, #ff7bff 36%, #7ee4ff 58%, #050712 100%);
+      box-shadow:
+        0 0 40px rgba(255, 218, 107, 0.7),
+        0 0 60px rgba(126, 228, 255, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-orb::after {
+      content: "🎤";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      filter: drop-shadow(0 0 10px rgba(0,0,0,0.7));
+    }
+
+    .hero-text h1 {
+      margin: 0 0 4px;
+      font-size: clamp(1.7rem, 2.4vw, 2.25rem);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .hero-tag {
+      padding: 3px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.22);
+      background: radial-gradient(circle at top, rgba(255,218,107,0.24), rgba(0,0,0,0.5));
+      font-size: 0.8rem;
+      color: var(--accent-1);
+    }
+
+    .hero-sub {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.15);
+      background: radial-gradient(circle at top, rgba(126,228,255,0.2), transparent 60%);
+      color: var(--text-main);
+      box-shadow: 0 0 22px rgba(0,0,0,0.7);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,218,107,0.9);
+      box-shadow:
+        0 0 26px rgba(255,218,107,0.6),
+        0 0 36px rgba(126,228,255,0.4);
+    }
+
+    main {
+      flex: 1;
+      padding: 14px 18px 40px;
+    }
+
+    .content-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      margin-top: 24px;
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3 {
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    p {
+      margin: 4px 0 10px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    ul {
+      list-style: none;
+      padding-right: 1em;
+      margin: 6px 0 10px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    ul li::before {
+      content: "🎧";
+      margin-left: 4px;
+    }
+
+    ul li {
+      margin-bottom: 3px;
+    }
+
+    /* Cards */
+    .grid-styles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: var(--gap);
+      margin-top: 12px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #1a2140 0, #090b18 55%, #050712 100%);
+      border-radius: var(--radius-xl);
+      padding: 14px 14px 16px;
+      border: 1px solid var(--border-glow);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,218,107,0.2), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(126,228,255,0.18), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(255,123,255,0.18), transparent 55%);
+      opacity: 0.8;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.3);
+      background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(10,20,40,0.9));
+      font-size: 0.75rem;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      margin: 4px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-title span.emoji {
+      font-size: 1.2rem;
+    }
+
+    .mini-label {
+      font-size: 0.8rem;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+    }
+
+    .tags-row {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag-pill {
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.5);
+      color: var(--text-soft);
+    }
+
+    /* Songs table */
+    .songs-table-wrapper {
+      margin-top: 14px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #090b18, #151a30);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    th {
+      background: rgba(10,18,40,0.9);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(10,18,40,0.7);
+    }
+
+    .col-style { width: 140px; }
+    .col-bpm { width: 70px; }
+    .col-mood { width: 160px; }
+
+    /* Rap & prompts */
+    .rap-block {
+      margin-top: 22px;
+      padding: 12px 14px;
+      border-radius: var(--radius-xl);
+      border: 1px dashed rgba(255,255,255,0.35);
+      background: radial-gradient(circle at top, rgba(255,123,255,0.16), rgba(0,0,0,0.8));
+      font-size: 0.95rem;
+      white-space: pre-line;
+    }
+
+    .prompt-box {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, rgba(126,228,255,0.16), rgba(0,0,0,0.8));
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.88rem;
+    }
+
+    .prompt-box code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.86rem;
+      background: rgba(0,0,0,0.5);
+      padding: 3px 6px;
+      border-radius: 6px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.18);
+      padding: 14px 18px 20px;
+      background: radial-gradient(circle at bottom, #151a30 0, #050712 55%, #020309 100%);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 780px) {
+      .hero-inner { flex-direction: row; align-items: flex-start; }
+      .footer-inner { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .credits-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+    }
+
+    .credits-list li {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .credits-list li::before {
+      content: "🎵";
+      font-size: 0.8rem;
+    }
+
+    .hashtag-row {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      word-spacing: 4px;
+    }
+
+    .pasuk {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--accent-1);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="hero-inner">
+        <div class="hero-orb" aria-hidden="true"></div>
+        <div class="hero-text">
+          <h1>
+            🎤 Vibe & Flow
+            <span>–</span>
+            <span>VibeFlow</span>
+            <span class="hero-tag">VF • Hip-Hop • Trap • ChillHop ⚡</span>
+          </h1>
+          <p class="hero-sub">
+            🌪 עמוד הבית של כל הביטים, הראפ, הצעקות והחיבוקים המוזיקליים – מהיפ־הופ קוסמי ועד LoFi שקט ללב.
+          </p>
+          <div class="hero-meta">
+            <span>📅 30.11.2025 | ט׳ כסלו תשפ״ו</span>
+            <span>⏰ 02:15</span>
+            <span>🎧 מאת: AnLoMinus SparKing Leon Yaakobov</span>
+            <span>🎚 6 מידות – Flow | Fire | Chill | Battle | Rhythm | Space</span>
+          </div>
+          <nav>
+            <div class="nav-links">
+              <a href="#styles">🎚 סגנונות משנה</a>
+              <a href="#songs">🎼 טבלת שירים</a>
+              <a href="#prompts">🧪 פרומפטים לסונו</a>
+              <a href="#rap">🎤 פזמון–ראפ</a>
+              <a href="#credits">✨ קרדיטים ופסוק</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="content-inner">
+
+        <!-- STYLES GRID -->
+        <section id="styles">
+          <h2 class="section-title">🎚 סגנונות משנה – Vibe & Flow</h2>
+          <p>
+            כל שיר שאתה יוצר 🌀 נכנס קודם לקטגוריה כאן,  
+            כדי שתדע אם זה ביט לנשמה, לנסיעה, לאימון, לקרב–ראפ או לג׳אם קוסמי עם החבר׳ה.
+          </p>
+
+          <div class="grid-styles">
+
+            <!-- Hip-Hop Cosmic -->
+            <article class="card" id="hiphop-cosmic">
+              <div class="card-inner">
+                <div class="badge">🔊 Hip-Hop Cosmic</div>
+                <div class="card-title">
+                  <span class="emoji">🪐</span>
+                  <span>היפ־הופ קוסמי</span>
+                </div>
+                <p class="mini-label">ביטים של גלקסיות, ראפ שמדבר עם כוכבים 🌌.</p>
+                <ul>
+                  <li>וייב: שילוב של רחוב וקוסמוס – הוד קדושה על ביט מודרני.</li>
+                  <li>שימוש: שירי פתיחה, מסרים רוחניים בקצב חד.</li>
+                  <li>טווח BPM מומלץ: 88–110.</li>
+                  <li>אווירה: מסלול המראה, אור מתוך חושך.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#HipHopCosmic</span>
+                  <span class="tag-pill">#GalaxyBars</span>
+                  <span class="tag-pill">#SpiritualRap</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Trap / Drill Light -->
+            <article class="card" id="trap-drill">
+              <div class="card-inner">
+                <div class="badge">🔥 Trap / Drill Light</div>
+                <div class="card-title">
+                  <span class="emoji">🔥</span>
+                  <span>Trap / Drill – אור בתוך כבד</span>
+                </div>
+                <p class="mini-label">ביטים כבדים, אבל הנפש נשארת נקייה ✨.</p>
+                <ul>
+                  <li>וייב: קצב חד, היי-הט מהיר, 808 עוצמתי.</li>
+                  <li>שימוש: שירים על מלחמה פנימית, ניצחון על היצר.</li>
+                  <li>טווח BPM מומלץ: 130–150.</li>
+                  <li>אווירה: זירת קרב – אבל עם כתר מלכות על הראש.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#TrapLight</span>
+                  <span class="tag-pill">#DrillSoul</span>
+                  <span class="tag-pill">#808Faith</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ChillHop / LoFi -->
+            <article class="card" id="chillhop">
+              <div class="card-inner">
+                <div class="badge">🎧 ChillHop / LoFi</div>
+                <div class="card-title">
+                  <span class="emoji">🌙</span>
+                  <span>ChillHop / LoFi – רוגע כתפילה</span>
+                </div>
+                <p class="mini-label">קפה, לילה, דפדפת, לב שכותב בשקט ☕📓.</p>
+                <ul>
+                  <li>וייב: ביט רגוע, רעש מחט, לופים נעימים.</li>
+                  <li>שימוש: רקע ללימוד, לתפילה שקטה, לכתיבה וחשיבה.</li>
+                  <li>טווח BPM מומלץ: 70–95.</li>
+                  <li>אווירה: חדר חמים, אור קטן, נשמה גדולה.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#ChillHop</span>
+                  <span class="tag-pill">#LoFiSoul</span>
+                  <span class="tag-pill">#StudyBeats</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Energetic Rap / Battle Style -->
+            <article class="card" id="energetic-rap">
+              <div class="card-inner">
+                <div class="badge">🌪 Energetic Rap / Battle</div>
+                <div class="card-title">
+                  <span class="emoji">⚔️</span>
+                  <span>Energetic Rap – Battle Style</span>
+                </div>
+                <p class="mini-label">כשהמיקרופון הופך לחרב–אור 🎙⚡.</p>
+                <ul>
+                  <li>וייב: טקסט חד, קצב צפוף, דינמיקה מתפוצצת.</li>
+                  <li>שימוש: שירים של הצהרה, כוח, חיזוק עצמי.</li>
+                  <li>טווח BPM מומלץ: 95–125.</li>
+                  <li>אווירה: זירה פתוחה, הקהל צועק – אתה שומר על קדושה.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#BattleRap</span>
+                  <span class="tag-pill">#EnergyBars</span>
+                  <span class="tag-pill">#HolyBattle</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Rhythm Focus -->
+            <article class="card" id="rhythm-focus">
+              <div class="card-inner">
+                <div class="badge">⚡ Rhythm Focus</div>
+                <div class="card-title">
+                  <span class="emoji">🎚️</span>
+                  <span>Rhythm Focus – ריכוז וקצב</span>
+                </div>
+                <p class="mini-label">ביטים לייזר – המוח נכנס לחדות 🧠.</p>
+                <ul>
+                  <li>וייב: חזרתיות נעימה, פרקוסיות חכמה, סאונד נקי.</li>
+                  <li>שימוש: עבודה עמוקה, קוד, למידה, יצירה.</li>
+                  <li>טווח BPM מומלץ: 90–120.</li>
+                  <li>אווירה: כמו מטרונום של לב – לאט נכנס לטראנס נקי.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#RhythmFocus</span>
+                  <span class="tag-pill">#DeepWorkBeats</span>
+                  <span class="tag-pill">#LaserGroove</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Space Groove -->
+            <article class="card" id="space-groove">
+              <div class="card-inner">
+                <div class="badge">🪐 Space Groove</div>
+                <div class="card-title">
+                  <span class="emoji">🚀</span>
+                  <span>Space Groove – גרוב חללי</span>
+                </div>
+                <p class="mini-label">כאילו האסטרונאוטים ירדו לעשות ג׳אם על הירח 🌕.</p>
+                <ul>
+                  <li>וייב: בס עגול, סינתים רחבים, אפקטים חלליים.</li>
+                  <li>שימוש: נסיעות לילה, נוף מכוניות, חלונות פתוחים.</li>
+                  <li>טווח BPM מומלץ: 100–122.</li>
+                  <li>אווירה: ציפה, תנועה, נצנוצי עיר רחוקה.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#SpaceGroove</span>
+                  <span class="tag-pill">#NightDrive</span>
+                  <span class="tag-pill">#CosmicRide</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- SONGS TABLE -->
+        <section id="songs">
+          <h2 class="section-title">🎼 טבלת שירים – Vibe & Flow</h2>
+          <p>
+            כאן תרשום את כל השירים שנולדו מהלב שלך 🎶.  
+            כל שורה היא שיר: אתה ממלא שם, סגנון, BPM, מצב־רוח ולינק להאזנה.
+          </p>
+
+          <div class="songs-table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>שם השיר 🎵</th>
+                  <th class="col-style">סגנון משנה 🎚</th>
+                  <th class="col-bpm">BPM</th>
+                  <th class="col-mood">מצב־רוח / שימוש 😊</th>
+                  <th>קישור / הערות 🔗</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td><!-- לדוגמה: "Cosmic Streets" --></td>
+                  <td>Hip-Hop Cosmic</td>
+                  <td>98</td>
+                  <td>הליכה לילית, מחשבות על תיקון</td>
+                  <td>לינק לסונו / יוטיוב / קובץ</td>
+                </tr>
+                <tr>
+                  <td>02</td>
+                  <td></td>
+                  <td>Trap / Drill Light</td>
+                  <td>140</td>
+                  <td>אימון, ריצה, שחרור כעס בקדושה</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td></td>
+                  <td>ChillHop / LoFi</td>
+                  <td>82</td>
+                  <td>לימוד, כתיבה, כתיבת חידושים</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>04</td>
+                  <td></td>
+                  <td>Energetic Rap</td>
+                  <td>112</td>
+                  <td>הצהרת כוח, חיזוק עצמו</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>05</td>
+                  <td></td>
+                  <td>Rhythm Focus</td>
+                  <td>110</td>
+                  <td>Deep Work, קוד, עיצוב</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>06</td>
+                  <td></td>
+                  <td>Space Groove</td>
+                  <td>118</td>
+                  <td>נסיעה לילית, חלון פתוח, תפילה שקטה</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- PROMPTS -->
+        <section id="prompts">
+          <h2 class="section-title">🧪 פרומפטים לסונו – תבניות לפי סגנון</h2>
+          <p>
+            כל בלוק כאן הוא תבנית 🧱. אתה רק מחליף מילים, רגשות, כלים – ומקבל שירים חדשים בסגנון Vibe & Flow.
+          </p>
+
+          <div class="prompt-box">
+            <h3>🔊 Hip-Hop Cosmic – תבנית פרומפט</h3>
+            <p>
+              סגנון: היפ־הופ קוסמי, ביט בינוני–מהיר, באס חם, סינתים חלליים, אווירה קדושה.  
+              שימוש: ראפ על תיקון, אמונה, אור מתוך חושך.
+            </p>
+            <p>
+              דוגמה קצרה לתיאור (לעריכה אישית):<br />
+              <code>cosmic hip-hop beat, deep punchy kick, warm 808 bass, spacey synths, soft choir pads, holy mystical vibe, 96 BPM, confident rap flow, cosmic streets at night, feeling of inner awakening</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🔥 Trap / Drill Light – תבנית פרומפט</h3>
+            <p>
+              סגנון: Trap / Drill עם באס חזק, היי־האטים מהירים, סנר חד, אבל בלי חושך בתוכן – רק עלייה.
+            </p>
+            <p>
+              <code>light drill / trap beat, heavy 808 bass, fast hi hats, sharp snare, cinematic brass stabs, uplifting but intense mood, 142 BPM, battle for the soul, inner warrior wins with faith</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🎧 ChillHop / LoFi – תבנית פרומפט</h3>
+            <p>
+              סגנון: ביט רך, וויניל, פסנתר, גיטרה, מושלם ללימוד ותפילה שקטה.
+            </p>
+            <p>
+              <code>lofi chillhop beat, soft vinyl crackle, warm electric piano, gentle guitar, relaxed drums, 82 BPM, night study mood, peaceful and holy, background for writing and reflection</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🌪 Energetic Rap / Battle – תבנית פרומפט</h3>
+            <p>
+              סגנון: אנרגטי, עוצמה, זירה – אבל הטקסט בקדושה.
+            </p>
+            <p>
+              <code>energetic rap beat, strong drums, hyped crowd FX, brass and synth hits, 110 BPM, battle arena energy, positive and powerful, inner victory, no darkness, only light</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>⚡ Rhythm Focus – תבנית פרומפט</h3>
+            <p>
+              סגנון: רפטטיבי, ממקד, כלי הקשה נקיים, פחות מלודיה – יותר גרוב.
+            </p>
+            <p>
+              <code>focused rhythm beat, tight drums, subtle percussion, minimal melody, 112 BPM, deep work groove, helps concentration, neutral but motivating energy</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🪐 Space Groove – תבנית פרומפט</h3>
+            <p>
+              סגנון: גרוב חללי, נסיעות, לילה, כוכבים.
+            </p>
+            <p>
+              <code>space groove beat, round bass, shimmering synths, soft lead, 118 BPM, night drive on empty highway, cosmic city lights, uplifting and dreamy</code>
+            </p>
+          </div>
+        </section>
+
+        <!-- RAP HOOK -->
+        <section id="rap">
+          <h2 class="section-title">🎤 פזמון–ראפ לסגנון Vibe & Flow</h2>
+          <div class="rap-block">
+            על הביט אני גולש, מעלה פה תדרים,  
+            כל מילה שלי בוערת כמו כוכב בין עולמים,  
+            Vibe & Flow זורם, פותח שערים נסתרים,  
+            AnLoMinus על המיק – מחזק לבבות שבורים.  
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="credits">
+      <div class="footer-inner">
+        <div>
+          <h3>✨ קרדיטים – VibeFlow (VF)</h3>
+          <ul class="credits-list">
+            <li><strong>יצירה, מיפוי וסגנון:</strong> AnLoMinus SparKing Leon Yaakobov 🎤</li>
+            <li><strong>ענף במפת SkyTone Tree:</strong> 1️⃣ Vibe & Flow – זרימה וקצב.</li>
+            <li><strong>ייעוד העמוד:</strong> בית לכל הביטים, הראפ והפלואו שלך.</li>
+          </ul>
+          <div class="hashtag-row">
+            #AnLoMinus #VibeFlow #VF #HipHopCosmic #TrapLight #ChillHop #BattleRap #RhythmFocus #SpaceGroove
+          </div>
+        </div>
+        <div>
+          <h3>🕊 פסוק מחזק</h3>
+          <div class="pasuk">
+            "הַלְלוּהוּ בְתֹף וּמָחוֹל, הַלְלוּהוּ בְּמִנִּים וְעוּגָב"  
+            <br />– תהלים קנ׳, ד׳  
+          </div>
+          <p>
+            כל ביט שאתה בונה – עוד הלל חדש בעולם, ועוד מחול של נשמה קדושה 💫.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
