@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Energy – HolyCharge (HC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="עמוד הסגנון Holy Energy – Psalms Flow, Neshamic Rise, Kabbalistic Pads, Gate Openings, Voice of Prophecy FX, Ascension Ambient." />
+  <style>
+    :root {
+      --bg-main: #05040c;
+      --bg-card: #151022;
+      --bg-soft: #1c1530;
+      --accent-1: #ffe58a;
+      --accent-2: #ffd2ff;
+      --accent-3: #a7f3ff;
+      --accent-4: #9dffcf;
+      --text-main: #fefbf5;
+      --text-soft: #d3cce8;
+      --border-glow: rgba(255, 245, 200, 0.35);
+      --shadow-soft: 0 0 40px rgba(0, 0, 0, 0.8);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --transition-fast: 0.22s ease-out;
+      --gap: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #2a1848 0, #05040c 55%, #020208 100%);
+      color: var(--text-main);
+      direction: rtl;
+      text-align: right;
+    }
+
+    a {
+      color: var(--accent-3);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 26px 18px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,4,18,0.96), rgba(5,4,18,0.86), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .hero-orb {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 25% 20%, #ffffff 0, #ffe58a 16%, #ffd2ff 36%, #a7f3ff 58%, #05040c 100%);
+      box-shadow:
+        0 0 55px rgba(255, 229, 138, 0.9),
+        0 0 80px rgba(167, 243, 255, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-orb::after {
+      content: "🌞";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      filter: drop-shadow(0 0 14px rgba(0,0,0,0.7));
+    }
+
+    .hero-text h1 {
+      margin: 0 0 4px;
+      font-size: clamp(1.7rem, 2.4vw, 2.35rem);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .hero-tag {
+      padding: 3px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.3);
+      background: radial-gradient(circle at top, rgba(255,229,138,0.28), rgba(0,0,0,0.5));
+      font-size: 0.8rem;
+      color: var(--accent-1);
+    }
+
+    .hero-sub {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.2);
+      background: radial-gradient(circle at top, rgba(255,229,138,0.25), transparent 60%);
+      color: var(--text-main);
+      box-shadow: 0 0 24px rgba(0,0,0,0.8);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,229,138,0.96);
+      background: radial-gradient(circle at top, rgba(255,229,138,0.35), transparent 65%);
+      box-shadow:
+        0 0 30px rgba(255,229,138,0.8),
+        0 0 42px rgba(167,243,255,0.6);
+    }
+
+    main {
+      flex: 1;
+      padding: 14px 18px 40px;
+    }
+
+    .content-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      margin-top: 24px;
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3 {
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    p {
+      margin: 4px 0 10px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    ul {
+      list-style: none;
+      padding-right: 1em;
+      margin: 6px 0 10px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    ul li::before {
+      content: "✨";
+      margin-left: 4px;
+    }
+
+    ul li {
+      margin-bottom: 3px;
+    }
+
+    /* Cards */
+    .grid-styles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: var(--gap);
+      margin-top: 12px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #26163c 0, #0b0815 55%, #05040c 100%);
+      border-radius: var(--radius-xl);
+      padding: 14px 14px 16px;
+      border: 1px solid var(--border-glow);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,229,138,0.28), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(255,210,255,0.24), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(167,243,255,0.24), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.35);
+      background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(20,14,40,0.95));
+      font-size: 0.75rem;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      margin: 4px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-title span.emoji {
+      font-size: 1.2rem;
+    }
+
+    .mini-label {
+      font-size: 0.8rem;
+      color: var(--accent-3);
+      margin-bottom: 4px;
+    }
+
+    .tags-row {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag-pill {
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.55);
+      color: var(--text-soft);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,229,138,0.96);
+      background: radial-gradient(circle at top, #3b215f 0, #080410 58%, #020208 100%);
+      box-shadow:
+        0 0 30px rgba(255,229,138,0.8),
+        0 0 40px rgba(167,243,255,0.6);
+    }
+
+    /* Songs table */
+    .songs-table-wrapper {
+      margin-top: 14px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #0a0714, #1c1530);
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    th {
+      background: rgba(22,15,48,0.96);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(15,10,32,0.9);
+    }
+
+    .col-style { width: 150px; }
+    .col-bpm { width: 70px; }
+    .col-mood { width: 180px; }
+
+    /* Rap & prompts */
+    .rap-block {
+      margin-top: 22px;
+      padding: 12px 14px;
+      border-radius: var(--radius-xl);
+      border: 1px dashed rgba(255,255,255,0.4);
+      background: radial-gradient(circle at top, rgba(255,229,138,0.2), rgba(0,0,0,0.85));
+      font-size: 0.95rem;
+      white-space: pre-line;
+    }
+
+    .prompt-box {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, rgba(167,243,255,0.18), rgba(0,0,0,0.85));
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 0.88rem;
+    }
+
+    .prompt-box h3 {
+      margin-top: 0;
+    }
+
+    .prompt-box code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.86rem;
+      background: rgba(0,0,0,0.6);
+      padding: 3px 6px;
+      border-radius: 6px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.22);
+      padding: 14px 18px 20px;
+      background: radial-gradient(circle at bottom, #25163f 0, #05040c 55%, #020208 100%);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 780px) {
+      .hero-inner { flex-direction: row; align-items: flex-start; }
+      .footer-inner { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .credits-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+    }
+
+    .credits-list li {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .credits-list li::before {
+      content: "🎵";
+      font-size: 0.8rem;
+    }
+
+    .hashtag-row {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      word-spacing: 4px;
+    }
+
+    .pasuk {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--accent-1);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="hero-inner">
+        <div class="hero-orb" aria-hidden="true"></div>
+        <div class="hero-text">
+          <h1>
+            🌞 Holy Energy
+            <span>–</span>
+            <span>HolyCharge</span>
+            <span class="hero-tag">HC • Psalms • Neshama • Gates • Light</span>
+          </h1>
+          <p class="hero-sub">
+            קודש ועוצמה רוחנית בתדרים מוזיקליים – תהילים, נשמה, קבלה, שערים והתעלות באור.
+          </p>
+          <div class="hero-meta">
+            <span>📅 30.11.2025 | ט׳ כסלו תשפ״ו</span>
+            <span>⏰ 02:30</span>
+            <span>🎧 מאת: AnLoMinus SparKing Leon Yaakobov</span>
+            <span>🎚 7 מידות – Psalms | Neshama | Kabbalah | Gates | Prophecy | Ascension | Light</span>
+          </div>
+          <nav>
+            <div class="nav-links">
+              <a href="#styles">🌞 תתי־סגנונות</a>
+              <a href="#songs">🎼 טבלת שירים</a>
+              <a href="#prompts">🧪 פרומפטים לסונו</a>
+              <a href="#rap">🎤 פזמון–ראפ</a>
+              <a href="#credits">✨ קרדיטים ופסוק</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="content-inner">
+
+        <!-- STYLES GRID -->
+        <section id="styles">
+          <h2 class="section-title">🌞 תתי־סגנונות – Holy Energy</h2>
+          <p>
+            כל קטע כאן לא רק שיר – הוא שירות קטן, מזמור, או שער של נשמה.  
+            אתה בוחר: האם זה תהילים מודרני, תדר נשמה, פד קבלי, שער, נבואה או אווירת התעלות רכה.
+          </p>
+
+          <div class="grid-styles">
+
+            <!-- Psalms Flow -->
+            <article class="card" id="psalms-flow">
+              <div class="card-inner">
+                <div class="badge">✨ Psalms Flow</div>
+                <div class="card-title">
+                  <span class="emoji">📜</span>
+                  <span>Psalms Flow – תהילים זורמים</span>
+                </div>
+                <p class="mini-label">מזמורי תהילים בתרגום מוזיקלי – תנועה בין פסוק לביט.</p>
+                <ul>
+                  <li>וייב: תערובת של קדושה וראפ/שירה רכה.</li>
+                  <li>שימוש: פתיחים לשיעורים, תפילה מודרנית, רקע לקריאה.</li>
+                  <li>טווח BPM מומלץ: 80–105.</li>
+                  <li>אווירה: הלב קורא "מזמור שיר", והביט עונה לו בעדינות.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#PsalmsFlow</span>
+                  <span class="tag-pill">#TehillimBeats</span>
+                  <span class="tag-pill">#HolyRap</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Neshamic Rise -->
+            <article class="card" id="neshamic-rise">
+              <div class="card-inner">
+                <div class="badge">🔥 Neshamic Rise</div>
+                <div class="card-title">
+                  <span class="emoji">🔥</span>
+                  <span>Neshamic Rise – תדרי נשמה</span>
+                </div>
+                <p class="mini-label">מוזיקה שמרגישה כמו נשמה שעולה מדרגה.</p>
+                <ul>
+                  <li>וייב: פדים חמים, כינורות רכים, באס לוחש ולא שולט.</li>
+                  <li>שימוש: בזמן התבודדות, התבוננות, תפילה שקטה.</li>
+                  <li>טווח BPM מומלץ: 70–95 (או אפילו א-ריתמי).</li>
+                  <li>אווירה: שקט עמוק, דמעות טובות, נשימה איטית.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#NeshamicRise</span>
+                  <span class="tag-pill">#SoulFrequency</span>
+                  <span class="tag-pill">#InnerUpgrade</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Kabbalistic Pads -->
+            <article class="card" id="kabbalistic-pads">
+              <div class="card-inner">
+                <div class="badge">🕊 Kabbalistic Pads</div>
+                <div class="card-title">
+                  <span class="emoji">🔯</span>
+                  <span>Kabbalistic Pads – פדים קבליים</span>
+                </div>
+                <p class="mini-label">שכבות צליל עמוקות שמרגישות כמו עשר ספירות באוויר.</p>
+                <ul>
+                  <li>וייב: דרונים ארוכים, פחות תופים, יותר הילה.</li>
+                  <li>שימוש: לימוד קבלה, זוהר, עץ חיים, מדיטציה על שמות.</li>
+                  <li>טווח BPM: לרוב ללא תוף או בקצב איטי מאוד.</li>
+                  <li>אווירה: חדר לימוד קטן, ספרים פתוחים, אור נר.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#KabbalisticPads</span>
+                  <span class="tag-pill">#SefirotSound</span>
+                  <span class="tag-pill">#Meditation</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Gate Openings -->
+            <article class="card" id="gate-openings">
+              <div class="card-inner">
+                <div class="badge">🌌 Gate Openings – שערים 1–7</div>
+                <div class="card-title">
+                  <span class="emoji">🚪</span>
+                  <span>Gate Openings – פתיחת שערים</span>
+                </div>
+                <p class="mini-label">סדרה של קטעים – כל אחד שער: 1 עד 7.</p>
+                <ul>
+                  <li>וייב: כל שער עם צבע, כלי ותדר משלו.</li>
+                  <li>שימוש: מסע מודרך – משער הגוף לשער הנשמה.</li>
+                  <li>טווח BPM: משתנה לפי שער – משקט ועד תנועה.</li>
+                  <li>אווירה: תחושת טקס קטן, מסע עם התחלה וסיום.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#Gate1to7</span>
+                  <span class="tag-pill">#OpeningGates</span>
+                  <span class="tag-pill">#SpiritualJourney</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Voice of Prophecy FX -->
+            <article class="card" id="voice-prophecy">
+              <div class="card-inner">
+                <div class="badge">🔱 Voice of Prophecy FX</div>
+                <div class="card-title">
+                  <span class="emoji">📣</span>
+                  <span>Voice of Prophecy – אפקטי נבואה</span>
+                </div>
+                <p class="mini-label">דיליי, ריברב, אקו – קול שמרגיש כמו עתיק ומעבר לזמן.</p>
+                <ul>
+                  <li>וייב: קריינות/לחישות, מילים בודדות, אפקטים חזקים.</li>
+                  <li>שימוש: מעבר בין קטעים, אינטרו/אאוטרו לאלבומים קדושים.</li>
+                  <li>טווח BPM: לפעמים בכלל בלי קצב – רק חלל.</li>
+                  <li>אווירה: קול שיוצא מהמערות העתיקות של הלב.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#VoiceOfProphecy</span>
+                  <span class="tag-pill">#HolyFX</span>
+                  <span class="tag-pill">#AncientEcho</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Ascension Ambient -->
+            <article class="card" id="ascension-ambient">
+              <div class="card-inner">
+                <div class="badge">🌟 Ascension Ambient</div>
+                <div class="card-title">
+                  <span class="emoji">🌟</span>
+                  <span>Ascension Ambient – אווירת התעלות</span>
+                </div>
+                <p class="mini-label">מוזיקת רקע רכה לעלייה, יוגה, נשימה ותיקון פנימי.</p>
+                <ul>
+                  <li>וייב: טקסטורות אוויריות, פעמונים, צלילים ארוכים.</li>
+                  <li>שימוש: סיום יום, השכבה לישון, סוף התבודדות.</li>
+                  <li>טווח BPM: נמוך מאוד עד א-ריתמי.</li>
+                  <li>אווירה: תחושה שקטה של "עלייה במעלית אור".</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#AscensionAmbient</span>
+                  <span class="tag-pill">#HealingLight</span>
+                  <span class="tag-pill">#CalmAscend</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- SONGS TABLE -->
+        <section id="songs">
+          <h2 class="section-title">🎼 טבלת שירים – HolyCharge (HC)</h2>
+          <p>
+            כאן תרשום את כל הקטעים הקדושים שקשורים ל־Holy Energy.  
+            כל שורה – עוד פתח קטן לאור: שם השיר, השער, התדר, מצב־נפש ולינק להאזנה.
+          </p>
+
+          <div class="songs-table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>שם הקטע 🎵</th>
+                  <th class="col-style">תת־סגנון 🌞</th>
+                  <th class="col-bpm">BPM</th>
+                  <th class="col-mood">מצב־נפש / שימוש 💫</th>
+                  <th>קישור / הערות 🔗</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td><!-- לדוגמה: "Tehillim Ascend 01" --></td>
+                  <td>Psalms Flow</td>
+                  <td>92</td>
+                  <td>תהילים להליכה, תפילה בתנועה</td>
+                  <td>לינק לסונו / יוטיוב / קובץ</td>
+                </tr>
+                <tr>
+                  <td>02</td>
+                  <td></td>
+                  <td>Neshamic Rise</td>
+                  <td>78</td>
+                  <td>התבודדות, בכי שקט, תיקון הלב</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td></td>
+                  <td>Kabbalistic Pads</td>
+                  <td>—</td>
+                  <td>רקע ללימוד קבלה/זוהר</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>04</td>
+                  <td></td>
+                  <td>Gate Openings</td>
+                  <td>שער 3 – 96</td>
+                  <td>מסע מודרך בשערי הלב</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>05</td>
+                  <td></td>
+                  <td>Voice of Prophecy FX</td>
+                  <td>—</td>
+                  <td>אינטרו לאלבום קדוש</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>06</td>
+                  <td></td>
+                  <td>Ascension Ambient</td>
+                  <td>—</td>
+                  <td>שקט לפני שינה, ריפוי</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- PROMPTS -->
+        <section id="prompts">
+          <h2 class="section-title">🧪 פרומפטים לסונו – Holy Energy Packs</h2>
+          <p>
+            כל בלוק פה הוא תבנית שאתה יכול להעתיק, לערוך ולהריץ בסונו –  
+            ולהוציא ממנו אלבומים מלאים של HolyCharge.
+          </p>
+
+          <div class="prompt-box">
+            <h3>✨ Psalms Flow – תבנית פרומפט</h3>
+            <p>
+              סגנון: תהילים על ביט, שילוב של ראפ/שירה רכה וקריינות פסוקים, אווירה קדושה ומודרנית.
+            </p>
+            <p>
+              <code>psalms inspired hip-hop beat, warm drums, soft choir pads, emotional piano, 94 BPM, modern spiritual vibe, verses inspired by Tehillim, uplifting and holy, gentle reverb, night prayer energy</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🔥 Neshamic Rise – תבנית פרומפט</h3>
+            <p>
+              סגנון: תדר נשמה שעולה – בלי הרבה תופים, יותר אווירה ונשימה.
+            </p>
+            <p>
+              <code>slow spiritual ambient track, warm pads, soft violin phrases, subtle choir, 80 BPM or no drums, inner healing mood, feeling of soul rising, calm and emotional, holy atmosphere</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🕊 Kabbalistic Pads – תבנית פרומפט</h3>
+            <p>
+              סגנון: שכבות צליל קבליות – מושלם לקריאה בעץ חיים או זוהר.
+            </p>
+            <p>
+              <code>deep mystical pad soundscape, long evolving drones, subtle chimes, very slow movement, no drums, kabbalistic meditation, feeling of sefirot and hidden worlds, soft low sub, infinite reverb</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🌌 Gate Openings – תבנית פרומפט</h3>
+            <p>
+              סגנון: קטעים סדרתיים, כל אחד שער אחר 1–7.
+            </p>
+            <p>
+              <code>spiritual journey track, each version named Gate 1 to Gate 7, evolving pads, gentle percussion, subtle bells, 90 BPM, feeling of walking through energetic gates, holy and hopeful mood</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🔱 Voice of Prophecy FX – תבנית פרומפט</h3>
+            <p>
+              סגנון: קול נבואי – הרבה אפקטים, מעט מילים.
+            </p>
+            <p>
+              <code>voice focused sound design, deep echo, long reverb, ancient whisper FX, low drones in background, no beat, prophecy style monologue, timeless holy atmosphere, distant shofar-like textures</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🌟 Ascension Ambient – תבנית פרומפט</h3>
+            <p>
+              סגנון: אמביאנט התעלות – שקט, אור, נשימה.
+            </p>
+            <p>
+              <code>soft ambient track, shimmering pads, gentle bell tones, slow evolving chords, no drums, healing and ascending mood, feeling of floating upwards in light, perfect for meditation and sleep</code>
+            </p>
+          </div>
+        </section>
+
+        <!-- RAP HOOK -->
+        <section id="rap">
+          <h2 class="section-title">🎤 פזמון–ראפ – HolyCharge</h2>
+          <div class="rap-block">
+            HolyCharge בלב, מרים אותי מעל הזמן,  
+            כל תדר קדושה זורם, מחזיר אותי אל העולם,  
+            Psalms על הביט, Neshamic Rise בנשימה,  
+            משערים עד נבואה – האור גואה בי בחכמה.  
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="credits">
+      <div class="footer-inner">
+        <div>
+          <h3>✨ קרדיטים – HolyCharge (HC)</h3>
+          <ul class="credits-list">
+            <li><strong>יצירה ומיפוי:</strong> AnLoMinus SparKing Leon Yaakobov 🌞</li>
+            <li><strong>ענף במפת SkyTone Tree:</strong> 2️⃣ Holy Energy – קודש ועוצמה רוחנית.</li>
+            <li><strong>ייעוד העמוד:</strong> בית לכל התדרים הקדושים – תהילים, נשמה, קבלה ושערי אור.</li>
+          </ul>
+          <div class="hashtag-row">
+            #AnLoMinus #HolyCharge #HC #HolyEnergy #PsalmsFlow #NeshamicRise #KabbalisticPads #GateOpenings #VoiceOfProphecy #AscensionAmbient
+          </div>
+        </div>
+        <div>
+          <h3>🕊 פסוק מחזק</h3>
+          <div class="pasuk">
+            "כִּי עִמְּךָ מְקוֹר חַיִּים, בְּאוֹרְךָ נִרְאֶה אוֹר"  
+            <br />– תהלים ל״ו, י׳  
+          </div>
+          <p>
+            כל קטע HolyCharge שאתה יוצר הוא עוד טיפה ממקור החיים שנשפכת לתוך העולם דרך הסאונד 💛.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
