@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Beast Modes – BeastPulse (BP)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="עמוד הסגנון Beast Modes – Aryeh Mode, Shor Bass, Nesher Sky, Jungle Cosmic Style, EarthPulse / Nature Drums." />
+  <style>
+    :root {
+      --bg-main: #040609;
+      --bg-card: #101820;
+      --bg-soft: #141e27;
+      --accent-1: #ffb347;   /* אש / אריה */
+      --accent-2: #9be7ff;   /* שמיים / נשר */
+      --accent-3: #a3ff8a;   /* טבע / אדמה */
+      --accent-4: #ffef9b;   /* אור כללי */
+      --text-main: #f9f9ff;
+      --text-soft: #c7d0e0;
+      --border-glow: rgba(255, 239, 155, 0.32);
+      --shadow-soft: 0 0 40px rgba(0, 0, 0, 0.85);
+      --radius-xl: 24px;
+      --radius-pill: 999px;
+      --transition-fast: 0.22s ease-out;
+      --gap: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #2c3b45 0, #040609 50%, #020306 100%);
+      color: var(--text-main);
+      direction: rtl;
+      text-align: right;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+      padding: 26px 18px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(4,6,9,0.97), rgba(4,6,9,0.86), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .hero-orb {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 15% 20%, #ffffff 0, #ffb347 16%, #ffef9b 30%, #9be7ff 52%, #a3ff8a 70%, #040609 100%);
+      box-shadow:
+        0 0 55px rgba(255,179,71,0.9),
+        0 0 80px rgba(155,231,255,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-orb::after {
+      content: "🐅";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      filter: drop-shadow(0 0 14px rgba(0,0,0,0.75));
+    }
+
+    .hero-text h1 {
+      margin: 0 0 4px;
+      font-size: clamp(1.7rem, 2.4vw, 2.35rem);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .hero-tag {
+      padding: 3px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.32);
+      background: radial-gradient(circle at top, rgba(163,255,138,0.22), rgba(0,0,0,0.6));
+      font-size: 0.8rem;
+      color: var(--accent-3);
+    }
+
+    .hero-sub {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: radial-gradient(circle at top, rgba(163,255,138,0.18), transparent 60%);
+      color: var(--text-main);
+      box-shadow: 0 0 24px rgba(0,0,0,0.8);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,179,71,0.95);
+      background: radial-gradient(circle at top, rgba(255,179,71,0.3), transparent 65%);
+      box-shadow:
+        0 0 30px rgba(255,179,71,0.8),
+        0 0 44px rgba(155,231,255,0.6);
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      flex: 1;
+      padding: 14px 18px 40px;
+    }
+
+    .content-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      margin-top: 24px;
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3 {
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    p {
+      margin: 4px 0 10px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    ul {
+      list-style: none;
+      padding-right: 1em;
+      margin: 6px 0 10px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    ul li::before {
+      content: "🌀";
+      margin-left: 4px;
+    }
+
+    ul li {
+      margin-bottom: 3px;
+    }
+
+    /* CARDS GRID */
+    .grid-styles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: var(--gap);
+      margin-top: 12px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #1f2a32 0, #06090f 55%, #040609 100%);
+      border-radius: var(--radius-xl);
+      padding: 14px 14px 16px;
+      border: 1px solid var(--border-glow);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,179,71,0.32), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(155,231,255,0.26), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(163,255,138,0.26), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.32);
+      background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(16,24,32,0.96));
+      font-size: 0.75rem;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      margin: 4px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-title span.emoji {
+      font-size: 1.2rem;
+    }
+
+    .mini-label {
+      font-size: 0.8rem;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+    }
+
+    .tags-row {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag-pill {
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(0,0,0,0.55);
+      color: var(--text-soft);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,179,71,0.96);
+      background: radial-gradient(circle at top, #283842 0, #05070c 58%, #020306 100%);
+      box-shadow:
+        0 0 30px rgba(255,179,71,0.8),
+        0 0 42px rgba(163,255,138,0.6);
+    }
+
+    /* SONGS TABLE */
+    .songs-table-wrapper {
+      margin-top: 14px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #050709, #141e27);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    th {
+      background: rgba(12,17,24,0.98);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(10,15,20,0.9);
+    }
+
+    .col-style { width: 150px; }
+    .col-bpm { width: 70px; }
+    .col-mood { width: 180px; }
+
+    /* PROMPTS & RAP */
+    .rap-block {
+      margin-top: 22px;
+      padding: 12px 14px;
+      border-radius: var(--radius-xl);
+      border: 1px dashed rgba(255,255,255,0.4);
+      background: radial-gradient(circle at top, rgba(255,179,71,0.22), rgba(0,0,0,0.88));
+      font-size: 0.95rem;
+      white-space: pre-line;
+    }
+
+    .prompt-box {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, rgba(155,231,255,0.2), rgba(0,0,0,0.9));
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 0.88rem;
+    }
+
+    .prompt-box h3 {
+      margin-top: 0;
+    }
+
+    .prompt-box code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.86rem;
+      background: rgba(0,0,0,0.6);
+      padding: 3px 6px;
+      border-radius: 6px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.22);
+      padding: 14px 18px 20px;
+      background: radial-gradient(circle at bottom, #18252e 0, #040609 55%, #020306 100%);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 780px) {
+      .hero-inner { flex-direction: row; align-items: flex-start; }
+      .footer-inner { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .credits-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+    }
+
+    .credits-list li {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .credits-list li::before {
+      content: "🎵";
+      font-size: 0.8rem;
+    }
+
+    .hashtag-row {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      word-spacing: 4px;
+    }
+
+    .pasuk {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--accent-4);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="hero-inner">
+        <div class="hero-orb" aria-hidden="true"></div>
+        <div class="hero-text">
+          <h1>
+            🐅 Beast Modes
+            <span>–</span>
+            <span>BeastPulse</span>
+            <span class="hero-tag">BP • Aryeh • Shor • Nesher • Jungle • Earth</span>
+          </h1>
+          <p class="hero-sub">
+            מוד חיות ועוצמות טבע – כשהמוזיקה מקבלת שיניים, כנפיים, קרניים ודופק אדמה חי.
+          </p>
+          <div class="hero-meta">
+            <span>📅 30.11.2025 | ט׳ כסלו תשפ״ו</span>
+            <span>⏰ 02:35</span>
+            <span>🎧 מאת: AnLoMinus SparKing Leon Yaakobov</span>
+            <span>🎚 5 Beast Modes – Aryeh | Shor | Nesher | Jungle | EarthPulse</span>
+          </div>
+          <nav>
+            <div class="nav-links">
+              <a href="#styles">🐾 תתי־מודים</a>
+              <a href="#songs">🎼 טבלת שירים</a>
+              <a href="#prompts">🧪 פרומפטים לסונו</a>
+              <a href="#rap">🎤 פזמון–ראפ</a>
+              <a href="#credits">✨ קרדיטים ופסוק</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="content-inner">
+
+        <!-- STYLES GRID -->
+        <section id="styles">
+          <h2 class="section-title">🐾 תתי־מודים – Beast Modes</h2>
+          <p>
+            כאן המוזיקה נהיית חיה – כל מוד הוא כוח טבע אחר:  
+            אריה שואג, שור דופק בבאס, נשר קורע את השמיים, ג׳ונגל קוסמי ואדמה שרועדת על התופים.
+          </p>
+
+          <div class="grid-styles">
+
+            <!-- Aryeh Mode -->
+            <article class="card" id="aryeh-mode">
+              <div class="card-inner">
+                <div class="badge">🦁 Aryeh Mode – Lion Roar FX</div>
+                <div class="card-title">
+                  <span class="emoji">🦁</span>
+                  <span>Aryeh Mode – מוד אריה</span>
+                </div>
+                <p class="mini-label">שאגות, דיסטורשן ואש בעיניים – אבל תחת כתר מלכות.</p>
+                <ul>
+                  <li>וייב: דיסטורשן גיטרות, בראס כבד, שאגות FX של אריה.</li>
+                  <li>שימוש: קטעי העצמה, הצהרות, פתיחים עוצמתיים לאלבומים.</li>
+                  <li>טווח BPM מומלץ: 95–130.</li>
+                  <li>אווירה: קרב של מלך – לא אלימות, אלא עמידה חזקה על האמת.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#AryehMode</span>
+                  <span class="tag-pill">#LionRoarFX</span>
+                  <span class="tag-pill">#RoyalFire</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Shor Bass -->
+            <article class="card" id="shor-bass">
+              <div class="card-inner">
+                <div class="badge">🐂 Shor Bass – Ox Power</div>
+                <div class="card-title">
+                  <span class="emoji">🐂</span>
+                  <span>Shor Bass – כוח השור</span>
+                </div>
+                <p class="mini-label">באס עבה, כבד, יציב – כמו שור שסוחב עולמות.</p>
+                <ul>
+                  <li>וייב: סאב־באס עמוק, קיק שמן, גרוב איטי אבל בטוח.</li>
+                  <li>שימוש: קטעים לקרקע, חיזוק עמוד השדרה הפנימי.</li>
+                  <li>טווח BPM מומלץ: 80–110.</li>
+                  <li>אווירה: רגליים על האדמה, ראש לשמיים – יציבות של צדיק.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#ShorBass</span>
+                  <span class="tag-pill">#OxPower</span>
+                  <span class="tag-pill">#HeavyGroove</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Nesher Sky -->
+            <article class="card" id="nesher-sky">
+              <div class="card-inner">
+                <div class="badge">🦅 Nesher Sky – Eagle Screech FX</div>
+                <div class="card-title">
+                  <span class="emoji">🦅</span>
+                  <span>Nesher Sky – שמי נשר</span>
+                </div>
+                <p class="mini-label">צעקות נשר, חללים גבוהים, אפקטים שמרגישים גובה.</p>
+                <ul>
+                  <li>וייב: ריוורבים גדולים, דיליי ארוך, FX של נשר וציפורים.</li>
+                  <li>שימוש: קטעים שמרימים למעלה – מעבר, פזמון, אינטרו.</li>
+                  <li>טווח BPM: גמיש – מהאיטי עד המהיר, העיקר תחושת מעוף.</li>
+                  <li>אווירה: טיסה מעל עננים, ראיית כל התמונה מלמעלה.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#NesherSky</span>
+                  <span class="tag-pill">#EagleScreech</span>
+                  <span class="tag-pill">#HighFlight</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Jungle Cosmic Style -->
+            <article class="card" id="jungle-cosmic">
+              <div class="card-inner">
+                <div class="badge">🐒 Jungle Cosmic Style</div>
+                <div class="card-title">
+                  <span class="emoji">🐒</span>
+                  <span>Jungle Cosmic – ג׳ונגל קוסמי</span>
+                </div>
+                <p class="mini-label">טופים שבטיים + חלליות – ג׳ונגל שמיים וארץ.</p>
+                <ul>
+                  <li>וייב: כלי הקשה שבטיים, תופי קונגה, שייקרים, ציפורים, קופים.</li>
+                  <li>שימוש: ריקוד, מסע שבטי, וייב מסיבה קדושה.</li>
+                  <li>טווח BPM מומלץ: 100–130.</li>
+                  <li>אווירה: מדורה באמצע יער, מעליה שמיים מלאים כוכבים.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#JungleCosmic</span>
+                  <span class="tag-pill">#TribalBeats</span>
+                  <span class="tag-pill">#SkyForest</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- EarthPulse -->
+            <article class="card" id="earthpulse">
+              <div class="card-inner">
+                <div class="badge">🌋 EarthPulse / Nature Drums</div>
+                <div class="card-title">
+                  <span class="emoji">🌋</span>
+                  <span>EarthPulse – דופק האדמה</span>
+                </div>
+                <p class="mini-label">תופי אדמה, רעמים, רוח, מים – לב הפלנטה בתופים.</p>
+                <ul>
+                  <li>וייב: תופים גדולים, סאונד של רעם, גשם, רוח, צעדי ענק.</li>
+                  <li>שימוש: מדיטציית הליכה, טקסי טבע, חיבור לאדמה.</li>
+                  <li>טווח BPM מומלץ: 70–105.</li>
+                  <li>אווירה: ליבה רוטטת, אדמה שחיה מתחת לכפות הרגליים.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#EarthPulse</span>
+                  <span class="tag-pill">#NatureDrums</span>
+                  <span class="tag-pill">#GroundedBeat</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- SONGS TABLE -->
+        <section id="songs">
+          <h2 class="section-title">🎼 טבלת שירים – BeastPulse (BP)</h2>
+          <p>
+            כאן תרשום כל קטע חייתי שהוצאת – איזה מוד הוא, מה ה־BPM, לאיזה מצב הוא מתאים, ואיפה שומעים אותו.
+          </p>
+
+          <div class="songs-table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>שם הקטע 🎵</th>
+                  <th class="col-style">תת־מוד 🐾</th>
+                  <th class="col-bpm">BPM</th>
+                  <th class="col-mood">מצב־נפש / שימוש 💥</th>
+                  <th>קישור / הערות 🔗</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td><!-- לדוגמה: "Lion Gate Charge" --></td>
+                  <td>Aryeh Mode</td>
+                  <td>108</td>
+                  <td>פתיחת אלבום, הצהרת עוצמה קדושה</td>
+                  <td>לינק לסונו / יוטיוב / קובץ</td>
+                </tr>
+                <tr>
+                  <td>02</td>
+                  <td></td>
+                  <td>Shor Bass</td>
+                  <td>92</td>
+                  <td>הליכה עמוקה, חיזוק ביטחון עצמי</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td></td>
+                  <td>Nesher Sky</td>
+                  <td>115</td>
+                  <td>פזמון שעף גבוה מעל הביט</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>04</td>
+                  <td></td>
+                  <td>Jungle Cosmic</td>
+                  <td>122</td>
+                  <td>ריקוד חופשי, וייב שבטי–קוסמי</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>05</td>
+                  <td></td>
+                  <td>EarthPulse</td>
+                  <td>88</td>
+                  <td>טקס חיבור לאדמה, נשימות עמוקות</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- PROMPTS -->
+        <section id="prompts">
+          <h2 class="section-title">🧪 פרומפטים לסונו – Beast Modes Packs</h2>
+          <p>
+            כל תבנית כאן היא בסיס לסט שלם. אתה מחליף מימדים, כלים, טווחי BPM – אבל המוד נשאר: חיית קודש בתדר שלך.
+          </p>
+
+          <div class="prompt-box">
+            <h3>🦁 Aryeh Mode – Lion Roar FX</h3>
+            <p>
+              סגנון: קטעים עם שאגות, דיסטורשן, אש – מוד מלכותי–חייתי.
+            </p>
+            <p>
+              <code>epic lion themed track, heavy distorted guitars, powerful drums, lion roar FX layered with synths, 110 BPM, royal warlike energy, holy warrior vibe, stadium reverb, intense but uplifting</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🐂 Shor Bass – Ox Power</h3>
+            <p>
+              סגנון: באס שמן, ביט איטי, תחושת כוח יציב של שור.
+            </p>
+            <p>
+              <code>slow heavy groove, deep sub bass, thick kick, minimal melody, 90 BPM, feeling of ox walking with huge strength, grounded and stable, nature rumble FX, earthy holy vibe</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🦅 Nesher Sky – Eagle Screech FX</h3>
+            <p>
+              סגנון: טיסה גבוהה, צעקות נשר, אווירה שמימית.
+            </p>
+            <p>
+              <code>atmospheric track with eagle screech FX, long reverb, wide stereo pads, 115 BPM, soaring over mountains feeling, bright high synths, wind FX, freedom and vision mood</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🐒 Jungle Cosmic Style</h3>
+            <p>
+              סגנון: ג׳ונגל שבטי + שכבת חלל – כלי הקשה וטבע.
+            </p>
+            <p>
+              <code>tribal jungle beat with cosmic synths, conga and bongo drums, shakers, animal FX (monkeys, birds), 120 BPM, night forest rave, stars above the trees, playful and spiritual</code>
+            </p>
+          </div>
+
+          <div class="prompt-box">
+            <h3>🌋 EarthPulse / Nature Drums</h3>
+            <p>
+              סגנון: תופי אדמה, רעמים, מים, אווירה של ליבה רוטטת.
+            </p>
+            <p>
+              <code>earth themed drum track, big tom drums, subtle thunder FX, wind and water sounds, 88 BPM, deep grounded rhythm, shamanic ceremony vibe, connection to soil and mountains</code>
+            </p>
+          </div>
+        </section>
+
+        <!-- RAP HOOK -->
+        <section id="rap">
+          <h2 class="section-title">🎤 פזמון–ראפ – BeastPulse</h2>
+          <div class="rap-block">
+            Aryeh על הביט, Shor מחזיק את כל השדה,  
+            Nesher מעל העננים מצייר קווים של מחזה,  
+            Jungle בפנים, EarthPulse דופק עמוק בחזה,  
+            AnLoMinus במוד חיות – מעלה טבע לקדושה ברמזי.  
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="credits">
+      <div class="footer-inner">
+        <div>
+          <h3>✨ קרדיטים – BeastPulse (BP)</h3>
+          <ul class="credits-list">
+            <li><strong>יצירה ומיפוי:</strong> AnLoMinus SparKing Leon Yaakobov 🐅</li>
+            <li><strong>ענף במפת SkyTone Tree:</strong> 3️⃣ Beast Modes – מוד חיות ועוצמות טבע.</li>
+            <li><strong>מאגר מומלץ:</strong> <a href="https://github.com/AnLoMinus/BeastPulse-BP" target="_blank" rel="noopener">github.com/AnLoMinus/BeastPulse-BP</a></li>
+          </ul>
+          <div class="hashtag-row">
+            #AnLoMinus #BeastPulse #BP #BeastModes #AryehMode #ShorBass #NesherSky #JungleCosmic #EarthPulse
+          </div>
+        </div>
+        <div>
+          <h3>🕊 פסוק מחזק</h3>
+          <div class="pasuk">
+            "הַלְלוּהוּ חַיָּה וְכָל בְּהֵמָה, רֶמֶשׂ וְצִפּוֹר כָּנָף"  
+            <br />– תהלים קמ״ח, י׳  
+          </div>
+          <p>
+            כל מוד BeastPulse שאתה יוצר – עוד הלל של חיות וטבע שחוזרים לשיר לבורא דרך הסאונד שלך 🐅🌍.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
