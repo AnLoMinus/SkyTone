@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>עץ המוזיקה – SkyTone Tree (ST)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="עץ המוזיקה של AnLoMinus – SkyTone Tree. מפת סגנונות, אלבומים ופלייליסטים למוזיקה קדושה, קוסמית וחשמלית." />
+  <style>
+    :root {
+      --bg-main: #050712;
+      --bg-card: #0f1425;
+      --bg-card-soft: #151a30;
+      --accent-1: #ffda6b;
+      --accent-2: #7ee4ff;
+      --accent-3: #ff7bff;
+      --accent-4: #7dffb3;
+      --text-main: #f7f7ff;
+      --text-soft: #b9c0ff;
+      --border-glow: rgba(255, 255, 255, 0.18);
+      --shadow-soft: 0 0 40px rgba(0, 0, 0, 0.6);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --transition-fast: 0.22s ease-out;
+      --grid-gap: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b2547 0, #050712 55%, #020309 100%);
+      color: var(--text-main);
+      direction: rtl;
+      text-align: right;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Layout */
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 26px 18px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,7,18,0.92), rgba(5,7,18,0.78), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo-orb {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #ffda6b 18%, #ff7bff 40%, #1b2547 70%, #050712 100%);
+      box-shadow:
+        0 0 40px rgba(255, 218, 107, 0.6),
+        0 0 90px rgba(119, 212, 255, 0.5);
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo-orb::after {
+      content: "🎧";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      filter: drop-shadow(0 0 8px rgba(0,0,0,0.7));
+    }
+
+    .hero-text-main h1 {
+      margin: 0 0 4px;
+      font-size: clamp(1.7rem, 2.3vw, 2.2rem);
+      letter-spacing: 0.03em;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .hero-title-tag {
+      padding: 2px 12px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, rgba(255,218,107,0.12), rgba(126,228,255,0.1));
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.8rem;
+      color: var(--accent-1);
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    nav {
+      margin-top: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: radial-gradient(circle at top, rgba(126,228,255,0.22), transparent 60%);
+      color: var(--text-main);
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,218,107,0.9);
+      background: radial-gradient(circle at top, rgba(255,218,107,0.26), transparent 65%);
+      box-shadow: 0 0 28px rgba(255,218,107,0.5);
+    }
+
+    main {
+      flex: 1;
+      padding: 12px 18px 40px;
+    }
+
+    .content-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      margin-top: 28px;
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    p {
+      margin: 4px 0 10px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    ul {
+      list-style: none;
+      padding-right: 1.1em;
+      margin: 6px 0 10px;
+    }
+
+    ul li::before {
+      content: "✨";
+      margin-left: 4px;
+    }
+
+    ul li {
+      margin-bottom: 3px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    /* Cards & grid */
+    .grid-branches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: var(--grid-gap);
+      margin-top: 12px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #1a2140 0, #090b18 55%, #050712 100%);
+      border-radius: var(--radius-xl);
+      padding: 14px 14px 16px;
+      border: 1px solid var(--border-glow);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(255,218,107,0.18), transparent 55%),
+        radial-gradient(circle at 90% 0, rgba(126,228,255,0.18), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(255,123,255,0.15), transparent 55%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.28);
+      background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(10,20,40,0.9));
+      font-size: 0.75rem;
+      margin-bottom: 6px;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,218,107,0.9);
+      box-shadow:
+        0 0 24px rgba(255,218,107,0.4),
+        0 0 38px rgba(126,228,255,0.35);
+      background: radial-gradient(circle at top, #242f5a 0, #050712 60%, #020309 100%);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      margin: 4px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-title span.emoji {
+      font-size: 1.2rem;
+    }
+
+    .mini-label {
+      font-size: 0.78rem;
+      color: var(--accent-2);
+      opacity: 0.9;
+    }
+
+    .tags-row {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag-pill {
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-soft);
+    }
+
+    /* How-to section */
+    .howto-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .howto-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-inner {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .howto-box {
+      background: linear-gradient(135deg, #090b18, #151a30);
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .howto-box::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,218,107,0.2), transparent 52%),
+        radial-gradient(circle at 100% 100%, rgba(126,228,255,0.18), transparent 52%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .howto-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .steps-list {
+      counter-reset: steps-counter;
+      list-style: none;
+      padding-right: 0;
+      margin: 0;
+    }
+
+    .steps-list li {
+      counter-increment: steps-counter;
+      position: relative;
+      padding-right: 34px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      color: var(--text-soft);
+    }
+
+    .steps-list li::before {
+      content: counter(steps-counter);
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffda6b, #ff7bff);
+      color: #050712;
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(255,218,107,0.7);
+    }
+
+    /* Rap block */
+    .rap-block {
+      margin-top: 22px;
+      padding: 12px 14px;
+      border-radius: var(--radius-xl);
+      border: 1px dashed rgba(255,255,255,0.32);
+      background: radial-gradient(circle at top, rgba(255,123,255,0.14), rgba(0,0,0,0.7));
+      font-size: 0.95rem;
+      white-space: pre-line;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.18);
+      padding: 14px 18px 20px;
+      background: radial-gradient(circle at bottom, #151a30 0, #050712 55%, #020309 100%);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 780px) {
+      .footer-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .credits-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      font-size: 0.8rem;
+    }
+
+    .credits-list li {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .credits-list li::before {
+      content: "🎵";
+      font-size: 0.8rem;
+    }
+
+    .hashtag-row {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      word-spacing: 4px;
+    }
+
+    .pasuk {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--accent-1);
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- 💫 HEADER / HERO -->
+    <header>
+      <div class="hero-inner">
+        <div class="logo-orb" aria-hidden="true"></div>
+        <div class="hero-text-main">
+          <h1>
+            🌳 עץ המוזיקה
+            <span>–</span>
+            <span>SkyTone Tree</span>
+            <span class="hero-title-tag">ST • SparKing Music Map ⚡</span>
+          </h1>
+          <p class="hero-subtitle">
+            🎶 מפת־על לכל השירים, התדרים והאלבומים – כדי שכל ניצוץ מוסיקלי ינחת במקום המדויק שלו.
+          </p>
+          <div class="hero-meta">
+            <span>📅 30.11.2025 | ט׳ כסלו תשפ״ו</span>
+            <span>⏰ 02:00</span>
+            <span>🎧 מאת: AnLoMinus SparKing Leon Yaakobov</span>
+            <span>🎚 7 מידות • Holy • Cosmic • Electric</span>
+          </div>
+          <nav>
+            <div class="nav-links">
+              <a href="#tree">🌿 עץ הסגנונות</a>
+              <a href="#howto">🧩 איך למיין שירים</a>
+              <a href="#structure">📂 מבנה קבצים</a>
+              <a href="#rap">🎤 פזמון–ראפ</a>
+              <a href="#credits">✨ קרדיטים וקדושה</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- 🌳 MAIN CONTENT -->
+    <main>
+      <div class="content-inner">
+
+        <!-- SECTION: TREE -->
+        <section id="tree">
+          <h2 class="section-title">🌿 עץ הסגנונות – 7 ענפי־על</h2>
+          <p>
+            כל שיר שתיצור בסונו נכנס כאן לענף מדויק 🌌.  
+            משם תוכל להמשיך לתת־סגנונות, אלבומים, פלייליסטים ולהרגיש שהכול יושב במקום הנכון בגלקסיית הסאונד שלך.
+          </p>
+
+          <div class="grid-branches">
+
+            <!-- 1. Vibe & Flow -->
+            <article class="card">
+              <div class="card-inner">
+                <div class="badge">1️⃣ זרימה וקצב • Vibe & Flow</div>
+                <div class="card-title">
+                  <span class="emoji">🎤</span>
+                  <span>Vibe & Flow – זרימה וקצב</span>
+                </div>
+                <p class="mini-label">שירים של ביט, ראפ, תנועה ותנופה קדימה.</p>
+                <ul>
+                  <li>Hip-Hop Cosmic – ביטים קוסמיים, זרימה קדושה.</li>
+                  <li>Trap / Drill Light – כבד בצליל, אור בפנים.</li>
+                  <li>ChillHop / LoFi – רקע ללימוד, כתיבה ותפילה שקטה.</li>
+                  <li>Energetic Rap – קצב שמרים אותך לאקשן.</li>
+                  <li>Space Groove – וייב חללי, מרחף ושמח.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#VibeFlow</span>
+                  <span class="tag-pill">#HipHopHoly</span>
+                  <span class="tag-pill">#ChillSpark</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Holy Energy -->
+            <article class="card">
+              <div class="card-inner">
+                <div class="badge">2️⃣ אנרגיה קדושה • Holy Energy</div>
+                <div class="card-title">
+                  <span class="emoji">🌞</span>
+                  <span>Holy Energy – קודש ועוצמה</span>
+                </div>
+                <p class="mini-label">תדרים של תפילה, התעלות ונשמה שנפתחת.</p>
+                <ul>
+                  <li>Psalms Flow – מזמורי תהילים בתדר מודרני.</li>
+                  <li>Neshamic Rise – שירים שמרוממים את הלב למעלה.</li>
+                  <li>Kabbalistic Pads – שכבות צליל עמוקות ומסתוריות.</li>
+                  <li>Gate Openings – מוזיקה לשערי 1–7, תיקון ותנועה.</li>
+                  <li>Ascension Ambient – צלילים למדיטציה ותיקון פנימי.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#HolyEnergy</span>
+                  <span class="tag-pill">#NeshamaBeat</span>
+                  <span class="tag-pill">#GateMusic</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Beast Modes -->
+            <article class="card">
+              <div class="card-inner">
+                <div class="badge">3️⃣ חיות הקודש • Beast Modes</div>
+                <div class="card-title">
+                  <span class="emoji">🐅</span>
+                  <span>Beast Modes – חיות ואיתנים</span>
+                </div>
+                <p class="mini-label">מוד של אריה 🦁, שור 🐂, נשר 🦅 – כוח טבע ברוח.</p>
+                <ul>
+                  <li>Aryeh Mode – שאגות, דיסטורשן, לב מלכותי.</li>
+                  <li>Shor Bass – באסים כבדים, יציבות של שור.</li>
+                  <li>Nesher Sky – אפקטי נשר, מרחב וגובה.</li>
+                  <li>Jungle Cosmic – ג׳ונגל קוסמי שמיים וארץ.</li>
+                  <li>EarthPulse – תופים שבאים מהאדמה.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#BeastMode</span>
+                  <span class="tag-pill">#AryehRoar</span>
+                  <span class="tag-pill">#JungleCosmic</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Cinematic & Epic -->
+            <article className="card card-cinematic card-glow">
+              <div class="card-inner">
+                <div class="badge">4️⃣ קולנועי ואפי • Cinematic & Epic</div>
+                <div class="card-title">
+                  <span class="emoji">🎬</span>
+                  <span>Cinematic & Epic – פסי־קול</span>
+                </div>
+                <p class="mini-label">פסקולים לסיפורים, טריילרים, פרויקטים גדולים.</p>
+                <ul>
+                  <li>Strings of Fire – מיתרים דרמטיים ומרגשים.</li>
+                  <li>War Drums – תופי־מלחמה, הכנה לקרב פנימי.</li>
+                  <li>Ascension Trailers – פתיחים לפרויקטים וסדרות.</li>
+                  <li>Heroic Calls – קריאת גיבור לנשמה.</li>
+                  <li>StarForge Soundtracks – צליל שמרגיש כמו יקום חדש.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#Cinematic</span>
+                  <span class="tag-pill">#EpicScore</span>
+                  <span class="tag-pill">#StarForge</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Melodic Soul -->
+            <article class="card">
+              <div class="card-inner">
+                <div class="badge">5️⃣ נשמה ולב • Melodic Soul</div>
+                <div class="card-title">
+                  <span class="emoji">🎹</span>
+                  <span>Melodic Soul – מלודיות נשמה</span>
+                </div>
+                <p class="mini-label">פסנתר, כינור, מקהלות ורגעים שקטים של ריפוי.</p>
+                <ul>
+                  <li>Piano Light – קטעי פסנתר עדינים לשקט פנימי.</li>
+                  <li>Night Breeze – לילות רכים, נשימות וירח.</li>
+                  <li>Soft Choirs – קולות רכים שנכנסים ללב.</li>
+                  <li>Violin Emotion – סולואים של דמעות שמחה.</li>
+                  <li>Healing Frequencies – 432Hz, מים, לב וריפוי.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#MelodicSoul</span>
+                  <span class="tag-pill">#HealingSound</span>
+                  <span class="tag-pill">#PianoLight</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. Electro Sparks -->
+            <article class="card">
+              <div class="card-inner">
+                <div class="badge">6️⃣ ניצוצות חשמליים • Electro Sparks</div>
+                <div class="card-title">
+                  <span class="emoji">⚡</span>
+                  <span>Electro Sparks – חשמל ותדרים</span>
+                </div>
+                <p class="mini-label">ביטים אלקטרוניים, באסים וטרנסים עם נשמה.</p>
+                <ul>
+                  <li>ElectroTrap – שילוב מלכודת־אלקטרונית קדושה.</li>
+                  <li>SparkWave – גלים של ניצוצות בכל ביט.</li>
+                  <li>EDM Cosmic – מסיבה קוסמית של אור.</li>
+                  <li>Chakra EQ Beats – צ׳אקרות על האקוולייזר.</li>
+                  <li>Voltage BassLines – קווי בס כמו חשמל בשמיים.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#ElectroSparks</span>
+                  <span class="tag-pill">#ChakraBeats</span>
+                  <span class="tag-pill">#VoltageBass</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 7. Future Mystic -->
+            <article class="card">
+              <div class="card-inner">
+                <div class="badge">7️⃣ עתיד ומסתורין • Future Mystic</div>
+                <div class="card-title">
+                  <span class="emoji">🛸</span>
+                  <span>Future Mystic – עתיד מיסטי</span>
+                </div>
+                <p class="mini-label">חייזרי, קוונטי, מיסטי – צליל מעולמות מקבילים.</p>
+                <ul>
+                  <li>Alien Atmos – אווירה חוץ־עולמית.</li>
+                  <li>Dark Galaxy – גלקסיות עמוקות ואפלות.</li>
+                  <li>CyberTemple – מקדש דיגיטלי לקדושה.</li>
+                  <li>Quantum Echo – הדי־תדרים בין־ממדיים.</li>
+                  <li>Aura Synths – סינתים עטופים בהילה זוהרת.</li>
+                </ul>
+                <div class="tags-row">
+                  <span class="tag-pill">#FutureMystic</span>
+                  <span class="tag-pill">#CyberTemple</span>
+                  <span class="tag-pill">#QuantumEcho</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- SECTION: HOW TO USE -->
+        <section id="howto">
+          <h2 class="section-title">🧩 איך למיין כל שיר בעץ?</h2>
+          <div class="howto-grid">
+            <div class="howto-box">
+              <div class="howto-inner">
+                <h3>📥 שלב 1 – איפה השיר יושב ברגש?</h3>
+                <ol class="steps-list">
+                  <li>שאל את עצמך: השיר הזה יותר קדושה, יותר ביט, או יותר סיפור?</li>
+                  <li>בחר ענף־על אחד מתוך 7 (למשל: Holy Energy או Vibe & Flow).</li>
+                  <li>בחר תת־סגנון מתוך הרשימה (למשל: Psalms Flow, ChillHop).</li>
+                  <li>סמן בקובץ / בתיקייה שם ברור:  
+                    לדוגמה: <strong>HolyEnergy/PsalmsFlow/song-name.wav</strong>.
+                  </li>
+                  <li>הוסף שם קצר לתדר (למשל: "Gate 3 – Heart Upgrade").</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="howto-box">
+              <div class="howto-inner">
+                <h3>💿 שלב 2 – אלבומים ופלייליסטים</h3>
+                <p>תוכל לארגן את השירים ככה:</p>
+                <ul>
+                  <li>📀 אלבומים לפי ענף – למשל:  
+                    <strong>Holy Energy Vol.1</strong>, <strong>Electro Sparks Vol.1</strong>.
+                  </li>
+                  <li>🎧 פלייליסטים לפי מצב־נפש –  
+                    Learning Mode, Night Drive, Deep Prayer, Workout.</li>
+                  <li>🌀 פרויקטים מיוחדים –  
+                    "Gate Series", "Beast Ascension", "SparKing Sessions".</li>
+                </ul>
+                <p>ככל שתטפטף שירים, העץ יהפוך ליער שלם של תדרים 🤍.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: STRUCTURE -->
+        <section id="structure">
+          <h2 class="section-title">📂 מבנה קבצים מומלץ למאגר</h2>
+          <p>הנה הצעה פשוטה למבנה תיקיות במאגר <strong>SkyTone Tree – ST</strong>:</p>
+          <ul>
+            <li><strong>/HolyEnergy/</strong> – שירים של תפילה, קבלה, נשמה.</li>
+            <li><strong>/VibeFlow/</strong> – ביטים, ראפ, זרימה ותנועה.</li>
+            <li><strong>/BeastMode/</strong> – חיות הקודש, ג׳ונגל קוסמי.</li>
+            <li><strong>/CinematicEpic/</strong> – פסי־קול לסיפורים וסדרות.</li>
+            <li><strong>/MelodicSoul/</strong> – פסנתר, כינור, מקהלות.</li>
+            <li><strong>/ElectroSparks/</strong> – אלקטרו, טראנס, EDM.</li>
+            <li><strong>/FutureMystic/</strong> – סאונד חייזרי־מיסטי.</li>
+            <li><strong>/Albums/</strong> – קבצי טקסט/Markdown עם רשימות אלבומים.</li>
+            <li><strong>/Playlists/</strong> – פלייליסטים לכל מצב.</li>
+            <li><strong>/Suno-Prompts/</strong> – כל הפרומפטים שסונו אוהב 😎.</li>
+            <li><strong>/Covers/</strong> – תמונות קאבר, פוסטרים וגרפיקות.</li>
+          </ul>
+        </section>
+
+        <!-- SECTION: RAP -->
+        <section id="rap">
+          <h2 class="section-title">🎤 פזמון ראפ – SkyTone Tree</h2>
+          <div class="rap-block">
+            ספארקינג על הביט, מרים פה עולמות,  
+            כל שיר שאתה מוציא מדליק שבע מדרגות,  
+            SkyTone Tree בוקע בין שמיים לעננים,  
+            AnLoMinus על הטרק – מאיר לבבות של עולמים.  
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- 🌟 FOOTER -->
+    <footer id="credits">
+      <div class="footer-inner">
+        <div>
+          <h3>✨ קרדיטים</h3>
+          <ul class="credits-list">
+            <li><strong>יצירה ופיתוח:</strong> AnLoMinus SparKing Leon Yaakobov 🎧</li>
+            <li><strong>מפת־סגנונות:</strong> SkyTone Tree (ST) – SparKing Music Map 🌌</li>
+            <li><strong>תשתית:</strong> GitHub Pages – עמוד סטטי לעץ המוזיקה.</li>
+          </ul>
+          <div class="hashtag-row">
+            #AnLoMinus #SkyToneTree #SparKing #HolyBeats #SunoFlow #CosmicMusic
+          </div>
+        </div>
+        <div>
+          <h3>🕊 פסוק מחזק</h3>
+          <div class="pasuk">
+            "טוֹב לְהֹדוֹת לַי־י וּלְזַמֵּר לְשִׁמְךָ עֶלְיוֹן"  
+            <br />– תהלים צ״ב, ג׳  
+          </div>
+          <p>כל טרק שאתה מוציא – עוד זמר ותודה אלוקית שנוספת לעולם 🎵.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
